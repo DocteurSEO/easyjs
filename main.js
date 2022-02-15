@@ -1,15 +1,3 @@
-easyDom('.text','<span>salut</span>')
-easyDom('h1','titre')
-easyDom('#id','<span>super lib </span>')
+const num = 'salut'
+easyDom('p',`<h1>${num}</h1>`)
 
-
-
-
-
-
-easyFetch("https://strapi-gogokodo.herokuapp.com/api/sources", display )
-
-
-function display(response){
-    console.log(response)
-}

@@ -25,3 +25,8 @@ async function easyFetch(url,callback, method = 'GET', headers = {}, body ) {
 
 
 
+
+function easyClick (selector,callback) {
+    document.querySelector(selector)
+    .addEventListener('click', callback)
+}
