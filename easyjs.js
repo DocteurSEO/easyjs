@@ -38,20 +38,50 @@ function easySave (key, value){
  
     if(typeof value == 'object'){
         localStorage.setItem(key,JSON.stringify(value))
+    
+    return
     }
-    else{
+    
         localStorage.setItem(key,value)
-    }
+    
     
 }
 
 function easyLoad (key){
  
-    if(localStorage.getItem(key).includes('{')){
+    
          return JSON.parse(localStorage.getItem(key))
-    }
-    else{
-        return localStorage.getItem(key)
-    }
+   
     
 }
+
+
+
+
+function eastFilter(data,filters) {
+
+    let killOperators = {
+        'includes': function(a, b) { return a.includes(b)  },
+        '<': function(a, b) { return a < b },
+        '>' :  function(a, b) { return a > b },
+        '<=' :  function(a, b) { return a <= b },
+        '>=' :  function(a, b) { return a >= b },
+        '==' :  function(a, b) { return a == b },
+        '!=' :  function(a, b) { return a != b },
+    }
+
+    
+    
+    return data.filter(function(val) {
+
+
+        
+        if (typeof filters[2]== 'string' && typeof val[filters[0]]== 'string' ){
+            filters[2] = filters[2].toLowerCase()
+            val[filters[0]] = val[filters[0]].toLowerCase()
+        }
+      
+      return killOperators[filters[1]](val[filters[0]]   ,filters[2] )
+     
+    })
+  }

@@ -1,3 +1,20 @@
+document.querySelector(selector).classList.toggle(class)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const num = 'salut'
 easyDom('p',`<h1>${num}</h1>`)
 
